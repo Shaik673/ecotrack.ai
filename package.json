@@ -1,0 +1,9 @@
+{
+  "name": "ecotrack",
+  "private": true,
+  "version": "0.1.0",
+  "scripts": {
+    "dev:frontend": "npm --prefix frontend run dev",
+    "dev:backend": "python backend/app/main.py"
+  }
+}
