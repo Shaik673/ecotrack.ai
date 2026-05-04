@@ -46,7 +46,8 @@ configured_origins = [
 ]
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["https://ecotrack-ai-tau.vercel.app/"],
+    allow_origins=["https://ecotrack-7jk5nbfzq-smahaboob823-4316s-projects.vercel.app",
+        "https://ecotrack-ai-backend-s1f3.onrender.com",],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
