@@ -16,7 +16,7 @@ import {
 import * as THREE from 'three';
 import './styles.css';
 
-const API_URL = 'http://127.0.0.1:8006';
+const API_URL = import.meta.env.VITE_API_URL || 'http://127.0.0.1:8006';
 const countries = {
   India: ['Andhra Pradesh', 'Delhi', 'Gujarat', 'Karnataka', 'Kerala', 'Maharashtra', 'Punjab', 'Rajasthan', 'Tamil Nadu', 'Telangana'],
   'United States': ['California', 'Florida', 'Georgia', 'Illinois', 'Massachusetts', 'New York', 'North Carolina', 'Texas', 'Virginia', 'Washington'],
@@ -43,7 +43,7 @@ function cls(...xs) { return xs.filter(Boolean).join(' '); }
 async function api(path, options = {}) {
   let response;
   try { response = await fetch(`${API_URL}${path}`, options); }
-  catch { throw new Error('Cannot connect to EcoTrack API. Start the FastAPI backend on http://127.0.0.1:8006.'); }
+  catch { throw new Error(`Cannot connect to EcoTrack API. Check VITE_API_URL or start the FastAPI backend on ${API_URL}.`); }
   const data = await response.json().catch(() => ({}));
   if (!response.ok) throw new Error(data.detail || 'EcoTrack request failed.');
   return data;
